@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://estudiantes-front.vercel.app'
+  'https://estudiantes-frontend.vercel.app'
 ];
 
 app.use(cors({
