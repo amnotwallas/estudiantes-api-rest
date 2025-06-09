@@ -33,6 +33,7 @@ const userRoutes = require('./routes/userRoutes');
 const alumnoRoutes = require('./routes/alumnoRoutes');
 const maestroRoutes = require('./routes/maestroRoutes');
 const reinscripcionRoutes = require('./routes/reinscripcionRoutes');
+const carrerasRoutes = require('./routes/carreras');
 
 // Usar rutas
 app.use('/api', authRoutes);           // /api/login y /api/register
@@ -40,6 +41,7 @@ app.use('/api/users', userRoutes);     // /api/users (rutas protegidas CRUD)
 app.use('/api/alumnos', alumnoRoutes);
 app.use('/api/maestros', maestroRoutes);
 app.use('/api/reinscripciones', reinscripcionRoutes);
+app.use('/api/carreras', carrerasRoutes);
 
 // Ruta principal (opcional)
 app.get("/", (req, res) => {
