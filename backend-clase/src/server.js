@@ -6,11 +6,23 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://estudiantes-front.vercel.app'
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: function (origin, callback) {
+    // permitir solicitudes sin origin (como Postman)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('No permitido por CORS'));
+    }
+  },
   credentials: true
 }));
+
 
 app.options('*', cors());
 app.use(express.json());
